@@ -8,8 +8,10 @@ class User(db.Model):
     email = db.Column(db.String, unique=True, nullable=False)
     password_hash = db.Column(db.String, nullable=False)
 
-    joined = db.Column(db.DateTime, default=datetime.utcnow())
-    last_updated = db.Column(db.DateTime,  default=datetime.utcnow(), onupdate=datetime.utcnow())
+    joined = db.Column(db.DateTime, default=datetime.now())
+    last_updated = db.Column(db.DateTime,  default=datetime.now(), onupdate=datetime.now())
+
+    print(datetime.now())
 
     def __repr__(self):
         return '<User %s>' % self.email

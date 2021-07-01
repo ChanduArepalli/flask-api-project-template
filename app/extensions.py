@@ -1,17 +1,11 @@
-from flask import Flask
+from flask import Flask, current_app
 from flask_sqlalchemy import SQLAlchemy
+from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
-from flask_script import Manager
 
-
-app = Flask(__name__)
 
 db = SQLAlchemy()
 
+migrate = Migrate()
 
-# if timezone required
-# import pytz
-#
-# # assuming now contains a timezone aware datetime
-# tz = pytz.timezone('Asia/Kolkata')
-# your_now = datetime.now.astimezone(tz)
+jwt = JWTManager()
